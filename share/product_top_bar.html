@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+<script >
+	
+</script>
+
+<style type="text/css">
+   
+  
+/* Slider */
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+
+
+<style type="text/css">
+	body{
+  background:#ccc;
+}
+.main {
+  font-family:Arial;
+  width:90%;
+  display:block;
+  margin:0 auto;
+}
+h3 {
+    background: #fff;
+    color: #3498db;
+    font-size: 36px;
+    line-height: 100px;
+    margin: 10px;
+    padding: 2%;
+    position: relative;
+    text-align: center;
+}
+</style>
+<style>
+.filterDiv {
+
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.tp-button{
+    position: relative;
+    color: #000;
+    background: #fff;
+        background-color: rgb(255, 255, 255);
+   
+    border-radius: 10px;
+    width: 300px;
+    height: 60px;
+    padding-left: 0px;
+    margin-left: 50px !important;
+    margin-bottom: 50px !important;
+    cursor: pointer ;
+}
+
+.tp-button:hover {
+  background-color: #ddd;
+}
+
+
+.tp-button.active {
+  color: white;
+    background:rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    border-radius: 10px;
+    width: 300px;
+  height: 50px;
+}
+
+.tp-button.active:after {
+  content: url("images/checked.png");
+
+  
+  position: relative;
+ 
+   
+    opacity: 0.9;
+    border-radius: 10px;
+    width: 300px;
+  height: 50px;
+}
+
+</style>
+
+<div class="main">
+  <div class=" slider-for">
+    
+  </div>
+  <div class=" slider-nav" id="myBtnContainer">
+    <div><button class="btn tp-button active" onclick="filterSelection('all')"></button></div>
+    <div><button class="btn tp-button" onclick="filterSelection('cars')"> Cars</button></div>
+    <div><button class="btn tp-button" onclick="filterSelection('animals')"> Animals</button></div>
+    <div><button class="btn tp-button" onclick="filterSelection('fruits')"> Fruits</button></div>
+    <div> <button class="btn tp-button" onclick="filterSelection('colors')"> Colors</button></div>
+  </div>
+ 
+</div>
+
+
+
+
+<!-- 
+<div class="container" id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('cars')"> Cars</button>
+  <button class="btn" onclick="filterSelection('animals')"> Animals</button>
+  <button class="btn" onclick="filterSelection('fruits')"> Fruits</button>
+  <button class="btn" onclick="filterSelection('colors')"> Colors</button>
+</div>
+ -->
+<!-- <div class="container">
+  <div class="filterDiv cars">BMW</div>
+  <div class="filterDiv colors fruits">Orange</div>
+  <div class="filterDiv cars">Volvo</div>
+  <div class="filterDiv colors">Red</div>
+  <div class="filterDiv cars animals">Mustang</div>
+  <div class="filterDiv colors">Blue</div>
+  <div class="filterDiv animals">Cat</div>
+  <div class="filterDiv animals">Dog</div>
+  <div class="filterDiv fruits">Melon</div>
+  <div class="filterDiv fruits animals">Kiwi</div>
+  <div class="filterDiv fruits">Banana</div>
+  <div class="filterDiv fruits">Lemon</div>
+  <div class="filterDiv animals">Cow</div>
+</div> -->
+
+
+
+
+
+
+
+<script type="text/javascript">
+	 $('.slider-for').slick({
+   slidesToShow: 1,
+   slidesToScroll: 1,
+   arrows: false,
+   fade: true,
+   asNavFor: '.slider-nav'
+ });
+ $('.slider-nav').slick({
+   slidesToShow: 3,
+   slidesToScroll: 1,
+   asNavFor: '.slider-for',
+   dots: false,
+   focusOnSelect: true
+ });
+
+ $('a[data-slide]').click(function(e) {
+   e.preventDefault();
+   var slideno = $(this).data('slide');
+   $('.slider-nav').slick('slickGoTo', slideno - 1);
+ });
+</script>
+
+
+
+
+<script type="text/javascript">
+  $( "button#jQueryColorChange" ).click(function() {
+  $(this).toggleClass( "selected" );
+});</script>
+
+
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+
+
+
+
+
+
+
+	
+
+</body>
+</html>
