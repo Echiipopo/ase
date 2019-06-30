@@ -168,7 +168,11 @@ transform: translateY(-50%) !important;}
 .card{margin-top: 10px;
 		margin-bottom: 10px;	}	
 
-
+ .card-body h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+}
 
 
 
